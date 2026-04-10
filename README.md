@@ -89,3 +89,91 @@ Bienvenue dans ce guide complet pour apprendre l'informatique **de zéro**. Ce r
 | [Exercism](https://exercism.org/) | Exercices avec feedback humain |
 | [LeetCode](https://leetcode.com/) | Algorithmes et défis de code |
 | [Root-Me](https://www.root-me.org/) | Plateforme de challenges sécurité (CTF) |
+
+---
+
+## Questions de révision + idées de mini-projets
+
+### Parcours 1 — Web (HTML/CSS/Tailwind/JavaScript/jQuery/PHP)
+
+**Questions de révision**
+1. Quelle différence entre balise bloc et balise inline en HTML ?
+2. Quand utiliser `id` et quand utiliser `class` ?
+3. Quelle différence entre `margin` et `padding` ?
+4. À quoi sert `display: flex` ?
+5. Quand préférer Tailwind à du CSS classique ?
+6. Quelle différence entre `let`, `const` et `var` en JavaScript ?
+7. Qu'est-ce qu'un événement DOM (`click`, `input`, `submit`) ?
+8. Quelle différence entre `==` et `===` en JavaScript ?
+9. Comment envoyer des données d'un formulaire au serveur en PHP ?
+10. Pourquoi valider les entrées utilisateur côté serveur ?
+
+**Idées de mini-projets**
+- Page portfolio responsive (HTML/CSS/Tailwind).
+- Todo list avec filtres (JavaScript).
+- Convertisseur d'unités (JavaScript + DOM).
+- Formulaire de contact avec validation (HTML/JS/PHP).
+- Mini blog statique puis version dynamique en PHP.
+
+### Parcours 2 — C++
+
+**Questions de révision**
+1. Quelle différence entre compilation et exécution ?
+2. Quand utiliser `int`, `double`, `char`, `bool` ?
+3. Différence entre `for`, `while` et `do...while` ?
+4. Pourquoi découper son code en fonctions ?
+5. À quoi sert un pointeur ?
+6. Différence entre tableau C et `std::vector` ?
+7. Qu'est-ce qu'une classe et un objet ?
+8. Différence entre `public`, `private` et `protected` ?
+9. Quand utiliser une référence (`&`) dans les paramètres ?
+10. Pourquoi la STL (`vector`, `map`, `string`) accélère le dev ?
+
+**Idées de mini-projets**
+- Calculatrice console (opérations + menu).
+- Gestionnaire de notes d'étudiants (`vector`, moyenne, tri).
+- Jeu du nombre mystère (boucles, conditions).
+- Carnet d'adresses en console (struct/classes + fichiers).
+- Mini système de bibliothèque (POO + `map`/`vector`).
+
+### Parcours 3 — C
+
+**Questions de révision**
+1. Quel rôle jouent `gcc` et l'édition de liens ?
+2. Quelle différence entre déclaration et initialisation ?
+3. Que se passe-t-il si une variable n'est pas initialisée ?
+4. Pourquoi utiliser des fonctions en C ?
+5. Comment manipuler une chaîne de caractères (`char[]`) ?
+6. Qu'est-ce qu'un pointeur et l'opérateur `*` / `&` ?
+7. Comment passer une variable par adresse à une fonction ?
+8. À quoi sert `struct` ?
+9. Comment lire/écrire dans un fichier avec `fopen`, `fgets`, `fprintf` ?
+10. Quelles erreurs classiques provoquent un segfault ?
+
+**Idées de mini-projets**
+- Calculatrice en ligne de commande.
+- Gestion de contacts avec `struct`.
+- Analyseur de texte (compter mots/lettres/lignes).
+- Petit agenda sauvegardé dans un fichier `.txt`.
+- Jeu pendu en console (tableaux + conditions + fonctions).
+
+### Parcours 4 — Sécurité informatique
+
+**Questions de révision**
+1. Différence entre vulnérabilité, menace et risque ?
+2. Pourquoi le modèle OSI aide en analyse d'attaque ?
+3. Différence entre encodage, chiffrement et hachage ?
+4. Pourquoi HTTPS protège mieux que HTTP ?
+5. Citer 3 vulnérabilités web OWASP courantes.
+6. À quoi sert un scan Nmap avant un test d'intrusion ?
+7. Quand utiliser Wireshark vs tcpdump ?
+8. Pourquoi le principe du moindre privilège est crucial sous Linux ?
+9. Quel intérêt de la stéganographie en CTF ?
+10. Que cherche-t-on en reverse engineering d'un binaire ?
+
+**Idées de mini-projets (légal et local uniquement)**
+- Lab réseau local avec VM + scan Nmap documenté.
+- Analyse d'un fichier `.pcap` et rapport d'observations.
+- Mini checklist d'audit web (auth, headers, entrées).
+- Script bash de durcissement Linux de base.
+- Write-up CTF (méthodo + outils + solutions).

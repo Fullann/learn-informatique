@@ -366,6 +366,140 @@ tracert google.com  # Windows
 
 ---
 
+## Quiz de fin de chapitre (25 questions)
+
+1. À quoi sert principalement la couche 3 du modèle OSI ?
+2. Quelle différence majeure entre TCP et UDP ?
+3. Que représente `192.168.1.0/24` ?
+4. Quelle plage de ports est dite "privilégiée" ?
+5. Quel protocole utilise généralement le port 53 ?
+6. Quel est le rôle d'un enregistrement DNS `MX` ?
+7. Quelle commande permet d'interroger les DNS avec plus de détails : `dig` ou `ping` ?
+8. Que fait `nmap -p- cible` ?
+9. Que signifie `-sV` dans Nmap ?
+10. Pourquoi un scan UDP est souvent plus lent ?
+11. Dans Wireshark, filtre pour voir seulement HTTP ?
+12. Différence entre `ip.src` et `ip.dst` ?
+13. Quel risque principal avec Telnet en production ?
+14. Quelle commande capture le trafic dans un fichier `.pcap` ?
+15. À quoi sert `Follow TCP Stream` dans Wireshark ?
+16. Le scan de ports est-il toujours une attaque ?
+17. Que permet une attaque ARP spoofing sur un LAN ?
+18. Quelle mesure réduit une brute force SSH ?
+19. Port standard de SSH ?
+20. Port standard de HTTPS ?
+21. Quelle commande Nmap combine scripts par défaut + version de service ?
+22. Différence entre `curl -v` et `curl` simple ?
+23. Que signifie `401 Unauthorized` ?
+24. Quel outil réseau polyvalent permet d'ouvrir une connexion TCP brute ?
+25. Première étape méthodologique en analyse d'un `.pcap` ?
+
+### Correction rapide
+1. Routage IP (adressage et acheminement).
+2. TCP est fiable et orienté connexion, UDP non.
+3. Un sous-réseau de 256 adresses IPv4.
+4. `0-1023`
+5. DNS (TCP/UDP selon contexte).
+6. Définir le serveur mail du domaine.
+7. `dig`
+8. Scanner tous les ports TCP.
+9. Détection version/service.
+10. Moins de réponses explicites, timeouts fréquents.
+11. `http`
+12. Source vs destination.
+13. Identifiants en clair.
+14. `tcpdump -i <iface> -w capture.pcap`
+15. Reconstituer la conversation applicative.
+16. Non, c'est de la reconnaissance.
+17. Intercepter/rediriger le trafic (MitM).
+18. Limitation de tentatives + 2FA + clés SSH.
+19. `22`
+20. `443`
+21. `nmap -sC -sV cible` (souvent avec `-O` selon besoin).
+22. `-v` affiche plus de détails (headers, handshake, etc.).
+23. Authentification requise/échouée.
+24. `nc` (netcat).
+25. Identifier les protocoles présents (Protocol Hierarchy).
+
+---
+
+## Mini-labs pratiques (avec correction attendue)
+
+### Lab 1 — Ports ouverts et service probable
+**Données :**
+```
+22/tcp open ssh
+80/tcp open http
+443/tcp open https
+3306/tcp open mysql
+```
+
+**À faire :**
+1. Associer chaque port à son service.
+2. Proposer un ordre de test logique.
+
+**Correction attendue :**
+- 22 SSH, 80 HTTP, 443 HTTPS, 3306 MySQL
+- Ordre conseillé : 80/443 (surface web), puis 22, puis 3306
+
+### Lab 2 — Lecture de réseau CIDR
+**Donnée :**
+`10.10.5.0/24`
+
+**À faire :**
+1. Donner l'adresse réseau.
+2. Donner la plage d'hôtes utilisables.
+3. Donner l'adresse de broadcast.
+
+**Correction attendue :**
+- Réseau : `10.10.5.0`
+- Hôtes : `10.10.5.1` à `10.10.5.254`
+- Broadcast : `10.10.5.255`
+
+### Lab 3 — DNS enumeration basique
+**À faire :**
+1. Obtenir les enregistrements A.
+2. Obtenir les MX.
+3. Tester un DNS spécifique.
+
+**Correction attendue :**
+```bash
+dig example.com
+dig example.com MX
+dig @8.8.8.8 example.com
+```
+
+### Lab 4 — Analyse Wireshark ciblée
+**Contexte :** tu as un `.pcap` et tu cherches un mot de passe transmis en clair.
+
+**À faire :**
+1. Filtrer sur protocoles non chiffrés.
+2. Isoler un flux.
+3. Extraire l'information.
+
+**Correction attendue :**
+- Filtres de départ : `http`, `ftp`, `telnet`
+- Action : clic droit -> **Follow TCP Stream**
+- Résultat : identifiants parfois visibles en clair dans le flux
+
+### Lab 5 — Nmap méthodique
+**Cible :**
+`192.168.56.101`
+
+**À faire :**
+1. Scan rapide.
+2. Scan complet des ports.
+3. Détection de versions.
+
+**Correction attendue :**
+```bash
+nmap -F 192.168.56.101
+nmap -p- 192.168.56.101
+nmap -sV -sC 192.168.56.101
+```
+
+---
+
 ## Sites pour pratiquer
 
 | Site | Lien | Description |

@@ -389,6 +389,132 @@ Challenges recommandés sur [https://www.root-me.org/fr/Challenges/Cryptanalyse/
 
 ---
 
+## Quiz de fin de chapitre (25 questions)
+
+1. Quelle est la différence principale entre encodage et chiffrement ?
+2. Le hachage est-il réversible ? Pourquoi ?
+3. Quel indice visuel suggère souvent du Base64 ?
+4. Quelle commande shell permet de décoder du Base64 ?
+5. En quoi Base32 se distingue-t-il de Base64 ?
+6. Quelle est la représentation hexadécimale de "AB" ?
+7. Que signifie `%20` en URL encoding ?
+8. ROT13 est-il un chiffrement fort ? Pourquoi ?
+9. Quelle propriété de sécurité vise un hash (MD5/SHA256) ?
+10. Pourquoi MD5 n'est-il plus recommandé pour la sécurité ?
+11. Quelle est la longueur typique d'un hash SHA1 en hexadécimal ?
+12. Quelle est la longueur typique d'un hash SHA256 en hexadécimal ?
+13. Dans César, que signifie "brute force 26" ?
+14. Quel est le principe de Vigenère par rapport à César ?
+15. Quelle attaque classique casse une substitution monoalphabétique ?
+16. Quelle est la différence clé entre AES et RSA ?
+17. En chiffrement asymétrique, quelle clé sert à chiffrer un message à destination d'Alice ?
+18. Pourquoi RSA avec un petit `n` est dangereux ?
+19. À quoi sert `iv` en AES-CBC ?
+20. Quelle est la différence entre confidentialité et intégrité ?
+21. Quel outil web est pratique pour enchaîner encodages/décodages ?
+22. Si une chaîne est uniquement composée de `0` et `1`, quelle piste tester d'abord ?
+23. À quoi servent `john --show` ou `hashcat --show` après un crack ?
+24. Pourquoi bcrypt est-il plus adapté que SHA256 seul pour les mots de passe ?
+25. Dans un CTF crypto, quelle première étape réduit le plus le temps de résolution ?
+
+### Correction rapide
+1. Encodage = représentation, chiffrement = confidentialité avec clé.
+2. Non, c'est à sens unique.
+3. Présence de `=` en fin et alphabet Base64.
+4. `echo "..." | base64 -d`
+5. Alphabet A-Z + 2-7, padding `=`.
+6. `4142`
+7. Un espace.
+8. Non, transformation triviale et réversible sans clé secrète.
+9. Intégrité (et vérification d'empreinte).
+10. Collisions connues.
+11. 40 caractères hex.
+12. 64 caractères hex.
+13. Tester tous les décalages possibles.
+14. Décalage variable dépendant d'une clé.
+15. Analyse de fréquences.
+16. AES symétrique, RSA asymétrique.
+17. La clé publique d'Alice.
+18. Factorisation plus facile.
+19. Randomiser le premier bloc et éviter des motifs répétitifs.
+20. Confidentialité cache le contenu, intégrité détecte la modification.
+21. CyberChef.
+22. Binaire (ASCII binaire).
+23. Afficher le mot de passe trouvé.
+24. bcrypt est salé et coûteux à calculer (anti brute force).
+25. Identifier la famille (encodage/chiffrement/hash) avant d'attaquer.
+
+---
+
+## Mini-labs pratiques (avec correction attendue)
+
+> Objectif : résoudre sans outil "magique" d'abord, puis vérifier avec CyberChef.
+
+### Lab 1 — Identifier puis décoder
+**Entrée :**
+`U2VjdXJpdGVfQ1RGX0Jhc2U2NA==`
+
+**À faire :**
+1. Identifier le format.
+2. Décoder la chaîne.
+
+**Correction attendue :**
+- Type : Base64
+- Message clair : `Securite_CTF_Base64`
+
+### Lab 2 — Hex vers texte
+**Entrée :**
+`666c61677b6865785f69735f66756e7d`
+
+**À faire :**
+1. Identifier le format.
+2. Convertir en ASCII.
+
+**Correction attendue :**
+- Type : Hexadécimal
+- Texte : `flag{hex_is_fun}`
+
+### Lab 3 — César
+**Entrée :**
+`iodj{fdhvdu_lv_hdvb}`
+
+**À faire :**
+1. Tester les 26 décalages.
+2. Trouver le message lisible.
+
+**Correction attendue :**
+- Décalage : 3
+- Texte : `flag{caesar_is_easy}`
+
+### Lab 4 — Hash simple
+**Entrée :**
+`5f4dcc3b5aa765d61d8327deb882cf99`
+
+**À faire :**
+1. Identifier le type de hash probable.
+2. Retrouver le mot de passe avec dictionnaire.
+
+**Correction attendue :**
+- Type : MD5
+- Mot de passe : `password`
+
+### Lab 5 — RSA jouet
+**Entrée :**
+`n=3233, e=17, c=2790`
+
+**À faire :**
+1. Factoriser `n`.
+2. Calculer `phi`, puis `d`.
+3. Déchiffrer `c`.
+
+**Correction attendue :**
+- `p=61`, `q=53`
+- `phi=3120`
+- `d=2753`
+- Message numérique : `65` (caractère ASCII `A`)
+
+---
+
 ## Sites pour pratiquer
 
 | Site | Lien | Description |
